@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lễ Thành Hôn - Nhật Hào & Hồng Như</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="weddingAudio" loop>
+    <source src="assets/nhac.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ phát âm thanh.
+</audio>
+
+<div class="music-control-btn" onclick="toggleMusic()">
+    <i id="musicIcon" class="fa-solid fa-compact-disc"></i>
+</div>
+<div class="heart-animation-container"></div>
+<!-- MÀN HÌNH CHỜ (SPLASH SCREEN) -->
+<div id="splashScreen" class="splash-screen">
+    <div class="envelope-container">
+        <!-- Ảnh đại diện nhỏ trên phong bì -->
+        <div class="envelope-thumb">
+            <img src="assets/bg1.jpg" alt="Nhật Hào & Hồng Như">
+        </div>
+        <h2 class="envelope-title">Wedding Invitation</h2>
+        <p class="envelope-names">Nhật Hào &amp; Hồng Như</p>
+        <p class="envelope-note">Trân trọng gửi lời mời đến quý khách</p>
+        
+        <!-- Nút bấm mở thiệp -->
+        <button class="open-envelope-btn" onclick="openWeddingCard()">
+            <i class="fa-solid fa-envelope-open"></i> Mở Thiệp Chúc Mừng
+        </button>
+    </div>
+</div>
+    <div class="mobile-wrapper">
+
+        <section class="hero-section fade-in-section">
+            <div class="hero-image-container">
+                <img src="assets/bg1.jpg" alt="Nhật Hào & Hồng Như">
+                <div class="hero-overlay-text">
+                    <h2 class="handwritten-title slide-from-left">Nhật Hào</h2>
+                    <p class="and-text">&amp;</p>
+                    <h2 class="handwritten-title slide-from-right">Hồng Như</h2>
+                    <p class="hero-date">25.07.2026</p>
+                </div>
+            </div>
+            <div class="hero-intro-text">
+                <p>Hạnh phúc đôi khi không phải là những điều lớn lao, mà là sau tất cả những bộn bề của cuộc sống vẫn có một người dịu dàng ở cạnh để yêu thương, chở che và cùng nhau nhìn về một hướng...</p>
+                <div class="line-divider"></div>
+            </div>
+        </section>
+
+        <section class="profile-section fade-in-section">
+            <div class="profile-card slide-from-left">
+                <img src="assets/bg2.jpg" alt="Chú Rể" class="profile-img">
+                <span class="role-tag">Chú Rể</span>
+                <h3>Phạm Nhật Hào</h3>
+                <p class="parents">Cha: Phạm Văn Thanh <br> Mẹ: Phạm Thị Thúy</p>
+                <p class="profile-desc">Chàng trai đến từ Vĩnh Long mang trong mình nét hiền lành và giản dị. Ít nói nhưng luôn sâu sắc, luôn biết lắng nghe và sẻ chia.</p>
+            </div>
+            <div class="line-divider"></div>
+            <div class="profile-card slide-from-right">
+                <img src="assets/bg3.jpg" alt="Cô Dâu" class="profile-img">
+                <span class="role-tag">Cô Dâu</span>
+                <h3>Trần Thị Hồng Như</h3>
+                <p class="parents">Cha: Trần Thanh Phi <br> Mẹ: Huỳnh Thị Thanh Tuyền</p>
+                <p class="profile-desc">Cô gái với nụ cười tỏa nắng, luôn tràn đầy năng lượng tích cực, là mảnh ghép hoàn hảo dịu dàng bên cạnh chú rể.</p>
+            </div>
+        </section>
+
+        <section class="story-section fade-in-section">
+            <h2 class="section-title">Love Story</h2>
+            <p class="section-subtitle">Hôn nhân là chuyện cả đời, yêu người vừa ý cưới người mình thương</p>
+            
+            <div class="timeline">
+                <div class="timeline-item scroll-fade-effect">
+                    <img src="assets/bg5.jpg" alt="Hẹn hò">
+                    <div class="timeline-content">
+                        <h4>25-11-2026 - Dạm Ngõ</h4>
+                        <p>Từ một ánh nhìn rất khẽ, chúng mình bước vào cuộc đời nhau lúc nào chẳng hay...</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <img src="assets/bg6.jpg" alt="Dạm ngõ">
+                    <div class="timeline-content">
+                        <h4>25/1/2026 - Đính Hôn</h4>
+                        <p>Ngày hai bên gia đình gặp gỡ, chính thức mở lời để hai đứa về chung một nhà.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="album-section fade-in-section">
+            <h2 class="section-title">Album Ảnh Cưới</h2>
+            <p class="section-subtitle">Hãy để tình yêu diễn biến thật tự nhiên, đã là duyên thì cùng chẳng sợ lạc đường</p>
+            
+            <div class="album-grid">
+                <div class="grid-large scroll-fade-effect"><img src="assets/bg13.jpg" alt="Album 1"></div>
+                <div class="grid-small scroll-fade-effect"><img src="assets/bg10.jpg" alt="Album 2"></div>
+                <div class="grid-small scroll-fade-effect"><img src="assets/bg11.jpg" alt="Album 3"></div>
+                <div class="grid-wide scroll-fade-effect"><img src="assets/bg14.jpg" alt="Album 4"></div>
+                
+                  
+            </div>
+        </section>
+
+        <section class="event-section fade-in-section">
+            <h2 class="section-title">Thư mời cưới</h2>
+            <p class="invitation-lead">
+                Trân Trọng Kính Mời <br>
+                <strong id="guestName" style="color: #B38E5D; font-size: 1.2rem;">Quý Khách</strong> <br>
+                Đến dự buổi tiệc chung vui cùng gia đình chúng tôi!
+            </p>
+            
+            <div class="event-card">
+                <img src="assets/bg1.jpg" alt="Tiệc cưới" class="event-img">
+                <div class="event-details">
+                    <span class="event-badge">Lễ Tân Hôn</span>
+                    
+                    <div class="countdown-container">
+                        <div class="countdown-box">
+                            <span id="days">00</span><p>Ngày</p>
+                        </div>
+                        <div class="countdown-box">
+                            <span id="hours">00</span><p>Giờ</p>
+                        </div>
+                        <div class="countdown-box">
+                            <span id="minutes">00</span><p>Phút</p>
+                        </div>
+                        <div class="countdown-box">
+                            <span id="seconds">00</span><p>Giây</p>
+                        </div>
+                    </div>
+
+                    <p class="event-time"><i class="fa-regular fa-clock"></i> 09:00 Thứ Bảy, ngày 25-07-2026</p>
+                    <p class="event-location"><i class="fa-solid fa-location-dot"></i> <strong>TẠI TƯ GIA NHÀ TRAI</strong> <br> ấp Rạch Trúc, xã Trung Thành, tỉnh Vĩnh Long</p>
+                    <a href="https://maps.google.com" target="_blank" class="maps-btn">Xem bản đồ</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="message-section fade-in-section">
+            <h2 class="section-title">Lời Ngỏ</h2>
+            <p class="message-content">Sau một chặng đường yêu thương và đồng hành, Nhật Hào & Hồng Như đã quyết định về chung một nhà. Cảm ơn tình cảm, sự chúc phúc từ tận đáy lòng của tất cả quý thân bằng quyến thuộc và bạn bè bè thân thiết!</p>
+        </section>
+
+        <section class="guestbook-section fade-in-section">
+            <h2 class="section-title">Sổ Lưu Bút</h2>
+            <p class="section-subtitle">Gửi những lời chúc mừng tốt đẹp nhất đến đám cưới của chúng tôi!</p>
+            <form class="guestbook-form">
+                <input type="text" placeholder="Họ và Tên" required>
+                <select>
+                    <option>Khách Mời</option>
+                    <option>Bạn Nhà Trai</option>
+                    <option>Bạn Nhà Gái</option>
+                </select>
+                <textarea rows="3" placeholder="Nhập lời chúc của bạn..." required></textarea>
+                <button type="submit">Gửi lời chúc cho Dâu Rể</button>
+            </form>
+        </section>
+
+        <section class="rsvp-section fade-in-section">
+            <div class="rsvp-card">
+                <h3>Xác Nhận Tham Dự</h3>
+                <p>Điều này giúp chúng tôi chuẩn bị đón tiếp các bạn chu đáo và đầy đủ hơn. Xin cảm ơn!!!</p>
+                <form class="rsvp-form">
+                    <input type="text" placeholder="Họ và Tên" required>
+                    <div class="radio-group">
+                        <label><input type="radio" name="attend" value="yes" checked> Có, tôi sẽ đến</label>
+                        <label><input type="radio" name="attend" value="no"> Xin lỗi, tôi bận mất rồi</label>
+                    </div>
+                    <select>
+                        <option>Nơi tham dự: Nhà Trai</option>
+                        <option>Nơi tham dự: Nhà Gái</option>
+                    </select>
+                    <select>
+                        <option>Số lượng tham dự: 1 người</option>
+                        <option>Số lượng tham dự: 2 người</option>
+                    </select>
+                    <button type="submit">Xác nhận</button>
+                </form>
+            </div>
+            
+            <div class="thankyou-footer">
+                <h2 class="thankyou-text">THANK YOU</h2>
+                <p class="footer-names">Nhật Hào &amp; Hồng Như</p>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const weddingDate = new Date("July 25, 2026 11:00:00").getTime();
+        setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            if (distance < 0) return;
+            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        }, 1000);
+        // Tự động tạo trái tim bay ngẫu nhiên
+function createHeart() {
+    const container = document.querySelector('.heart-animation-container');
+    if (!container) return;
+
+    const heart = document.createElement('i');
+    heart.classList.add('fa-solid', 'fa-heart', 'floating-heart');
+    
+    // Ngẫu nhiên vị trí xuất hiện theo chiều ngang (0% đến 100%)
+    heart.style.left = Math.random() * 100 + '%';
+    
+    // Ngẫu nhiên kích thước trái tim (từ 10px đến 20px)
+    const size = Math.random() * 10 + 10;
+    heart.style.fontSize = size + 'px';
+    
+    // Ngẫu nhiên tốc độ bay (từ 4 giây đến 8 giây)
+    const duration = Math.random() * 4 + 4;
+    heart.style.animationDuration = duration + 's';
+    
+    container.appendChild(heart);
+    
+    // Xóa trái tim sau khi bay xong để nhẹ máy
+    setTimeout(() => {
+        heart.remove();
+    }, duration * 1000);
+}
+
+// Cứ mỗi 600ms (0.6 giây) sẽ tạo ra 1 trái tim mới
+setInterval(createHeart, 600);
+
+
+// Quản lý tất cả các phần tử có hiệu ứng động
+const animatedElements = document.querySelectorAll('.slide-from-left, .slide-from-right, .scroll-fade-effect, .fade-in-section');
+
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Khi phần tử lọt vào tầm mắt (dù chỉ một chút): Hiện rõ nét ngay lập tức
+            entry.target.classList.add('is-visible');
+        }
+        // XÓA BỎ HOÀN TOÀN phần else ẩn ảnh cũ để ảnh KHÔNG bị mờ tối lại khi cuộn nữa
+    });
+}, { 
+    threshold: 0.05,       // Kích hoạt cực nhạy khi chỉ cần 5% diện tích ảnh xuất hiện
+    rootMargin: "0px 0px 100px 0px" // Nới rộng vùng nhận diện bên dưới thêm 100px để ảnh tải trước khi cuộn tới
+});
+
+// Kích hoạt bộ theo dõi
+animatedElements.forEach(element => {
+    scrollObserver.observe(element);
+});
+
+<!--Nhạc -->
+const audio = document.getElementById("weddingAudio");
+const musicBtn = document.querySelector(".music-control-btn");
+const splash = document.getElementById("splashScreen");
+
+// Hàm kích hoạt khi bấm nút "Mở Thiệp Chúc Mừng"
+function openWeddingCard() {
+    // 1. Thêm class ẩn để tạo hiệu ứng mờ dần và trượt lên
+    splash.classList.add("fade-out-splash");
+    
+    // 2. Kích hoạt phát nhạc ngay lập tức (trình duyệt cho phép vì có tương tấu click)
+    audio.play().then(() => {
+        musicBtn.classList.add("playing");
+    }).catch(error => {
+        console.log("Không thể tự phát nhạc: ", error);
+    });
+
+    // 3. Xóa hẳn màn hình chờ khỏi giao diện sau khi hiệu ứng kết thúc (sau 0.8 giây)
+    setTimeout(() => {
+        splash.style.display = "none";
+    }, 800);
+}
+
+// Nút bấm bật/tắt nhạc chủ động ở góc màn hình
+function toggleMusic() {
+    if (audio.paused) {
+        audio.play();
+        musicBtn.classList.add("playing");
+    } else {
+        audio.pause();
+        musicBtn.classList.remove("playing");
+    }
+}
+// Đợi trang web tải xong hoàn toàn cấu trúc HTML rồi mới chạy hiệu ứng
+// Đợi trang web tải xong hoàn toàn cấu trúc HTML rồi mới chạy hiệu ứng
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // --- 1. QUẢN LÝ HIỆU ỨNG CUỘN TRANG LẶP ĐI LẶP LẠI (VÒNG LẶP VÔ HẠN) ---
+    const animatedElements = document.querySelectorAll('.slide-from-left, .slide-from-right, .scroll-fade-effect, .fade-in-section');
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Khi phần tử lọt vào tầm mắt: Thêm class để chạy hiệu ứng hiện ra
+                entry.target.classList.add('is-visible');
+            } else {
+                // CHIÀ KHÓA Ở ĐÂY: Khi cuộn khuất khỏi màn hình (lên trên hoặc xuống dưới)
+                // Tự động xóa class để phần tử ẩn đi, chuẩn bị cho lần cuộn tới tiếp theo
+                entry.target.classList.remove('is-visible');
+            }
+        });
+    }, { 
+        threshold: 0.05,       // Kích hoạt khi chỉ cần 5% diện tích phần tử xuất hiện
+        rootMargin: "-10px 0px -10px 0px" // Tạo khoảng đệm nhỏ ở mép trên/dưới màn hình để hiệu ứng mượt hơn
+    });
+
+    // Bật bộ lắng nghe cho từng phần tử
+    animatedElements.forEach(element => {
+        scrollObserver.observe(element);
+    });
+
+
+    // --- 2. CHỨC NĂNG CLICK ẢNH ĐỂ PHÓNG TO (LIGHTBOX) ---
+    const lightbox = document.getElementById("lightboxModal");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const albumImages = document.querySelectorAll(".album-grid img");
+
+    if (albumImages.length > 0) {
+        albumImages.forEach(img => {
+            img.style.cursor = "pointer";
+            img.addEventListener("click", function(e) {
+                e.stopPropagation();
+                lightbox.style.display = "flex"; 
+                lightboxImg.src = this.src;      
+            });
+        });
+    }
+});
+
+// Hàm đóng khung phóng to ảnh
+function closeLightbox() {
+    document.getElementById("lightboxModal").style.display = "none";
+}
+
+    // --- 3. TỰ ĐỘNG LẤY TÊN KHÁCH MỜI TỪ ĐƯỜNG LINK (URL) ---
+    // Hàm này sẽ đọc nội dung phía sau dấu hỏi chấm ?to= trên thanh địa chỉ
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestNameParam = urlParams.get('to'); // Lấy giá trị của biến "to"
+
+    // Tìm thẻ hiển thị tên khách trên giao diện
+    const guestNameElement = document.getElementById("guestName");
+
+    if (guestNameParam) {
+        // Nếu trên link có truyền tên (Ví dụ: ?to=Anh Tuấn) -> Hiển thị tên đó lên thiệp
+        guestNameElement.innerText = guestNameParam;
+    } else {
+        // Nếu link không có tên (chỉ mở mỗi index.html) -> Hiện chữ mặc định
+        guestNameElement.innerText = "Quý Khách và Người Thương";
+    }
+    </script>
+    <!-- KHUNG PHÓNG TO ẢNH (LIGHTBOX MODAL) -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightboxImg" alt="Ảnh phóng to">
+</div>
+</body>
+</html>

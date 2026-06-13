@@ -1,0 +1,603 @@
+/* --- 1. CẤU HÌNH CHUNG & RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f7f7f7; /* Nền ngoài máy tính màu xám nhẹ */
+    color: #4A453F;
+    display: flex;
+    justify-content: center;
+}
+
+/* Biến giao diện thành dạng khung điện thoại đặt giữa màn hình PC giống mẫu */
+.mobile-wrapper {
+    width: 100%;
+    max-width: 480px; /* Độ rộng chuẩn màn hình điện thoại */
+    background-color: #F5F2EB; /* Màu nền be mộc xuyên suốt */
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    min-height: 100vh;
+}
+
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #B38E5D;
+    margin-bottom: 5px;
+}
+
+.section-subtitle {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #8C8275;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+.line-divider {
+    width: 60px;
+    height: 1px;
+    background-color: #B38E5D;
+    margin: 25px auto;
+}
+
+/* --- 2. HERO SECTION --- */
+.hero-image-container {
+    position: relative;
+    width: 100%;
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.handwritten-title {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.and-text {
+    font-size: 1.5rem;
+    margin: 5px 0;
+}
+
+.hero-date {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    margin-top: 15px;
+}
+
+.hero-intro-text p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #555;
+    text-align: justify;
+    text-align-last: center;
+    margin-top: 25px;
+}
+
+/* --- 3. PROFILE CARDS --- */
+.profile-card {
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.role-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    background-color: #B38E5D;
+    color: #fff;
+    padding: 2px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.profile-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+}
+
+.parents {
+    font-size: 0.8rem;
+    color: #777;
+    margin: 5px 0 12px 0;
+    line-height: 1.5;
+}
+
+.profile-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #666;
+    padding: 0 15px;
+}
+
+/* --- 4. LOVE STORY TIMELINE --- */
+.timeline-item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.timeline-item img {
+    width: 100%;
+    height: auto;
+}
+
+.timeline-content {
+    padding: 15px;
+    text-align: left;
+}
+
+.timeline-content h4 {
+    font-size: 0.95rem;
+    color: #B38E5D;
+    margin-bottom: 5px;
+}
+
+.timeline-content p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* --- 5. ALBUM GRID (Xếp so le giống hệt trang mẫu) --- */
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+/* --- TỐI ƯU HIỂN THỊ ẢNH TRONG ALBUM --- */
+/* --- TỐI ƯU HIỂN THỊ VÀ HIỆU ỨNG RÊ CHUỘT PHÓNG TO --- */
+.album-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+    
+    /* 1. CHIÀ KHÓA GIÚP ẢNH NÉT: Ép trình duyệt render ảnh sắc nét nhất có thể, chống mờ hạt */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    
+    /* 2. Tạo độ mượt mà khi phóng to lên (chuyển động trong vòng 0.4 giây) */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+/* 3. Khi rê chuột vào: Ảnh tự động phóng to lên 1.08 lần */
+.album-grid img:hover {
+    transform: scale(1.08);
+    cursor: pointer; /* Biến con trỏ chuột thành hình bàn tay để khách biết bấm vào được */
+}
+
+/* --- CẬP NHẬT CÁC Ô KHUNG CHỨA ẢNH --- */
+.grid-large { grid-column: span 2; height: 300px; overflow: hidden; border-radius: 4px; }
+.grid-small { height: 180px; overflow: hidden; border-radius: 4px; }
+.grid-wide { grid-column: span 2; height: 220px; overflow: hidden; border-radius: 4px; }
+
+/* --- 6. EVENT & COUNTDOWN --- */
+.invitation-lead {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.event-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.event-img { width: 100%; height: auto; }
+.event-details { padding: 25px 15px; }
+
+.event-badge {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #B38E5D;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Định dạng các ô đếm ngược thời gian giống mẫu */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.countdown-box {
+    background: #FDFBF7;
+    border: 1px dashed #B38E5D;
+    padding: 8px;
+    min-width: 65px;
+    border-radius: 4px;
+}
+
+.countdown-box span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #B38E5D;
+}
+
+.countdown-box p { font-size: 0.65rem; color: #888; }
+
+.event-time, .event-location {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.event-time i, .event-location i { color: #B38E5D; margin-right: 5px; }
+
+.maps-btn {
+    display: inline-block;
+    padding: 6px 20px;
+    background: #4A453F;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+/* --- 7. LỜI NGỎ & GUESTBOOK --- */
+.message-section { background-color: #FDFBF7; }
+.message-content { font-size: 0.85rem; line-height: 1.7; font-style: italic; }
+
+.guestbook-form, .rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #EAE5DB;
+    background: #fff;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+
+button {
+    background-color: #B38E5D;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- 8. RSVP XÁC NHẬN --- */
+.rsvp-section { background-color: #E2DCD0; }
+.rsvp-card {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.rsvp-card h3 { font-family: 'Playfair Display', serif; margin-bottom: 8px; }
+.rsvp-card p { font-size: 0.8rem; color: #666; margin-bottom: 15px; }
+
+.radio-group {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    font-size: 0.85rem;
+}
+
+.thankyou-footer { margin-top: 40px; }
+.thankyou-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    letter-spacing: 4px;
+    color: #4A453F;
+}
+
+.footer-names {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 1.8rem;
+    color: #B38E5D;
+}
+/* --- HIỆU ỨNG TRÁI TIM BAY --- */
+.heart-animation-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px; /* Chỉ bay trong khung thiệp dọc */
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none; /* Không làm ảnh hưởng khi bấm nút trên web */
+    z-index: 99;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -20px;
+    color: rgba(230, 92, 117, 0.7); /* Màu tim hồng đỏ có độ trong suốt */
+    font-size: 14px;
+    animation: flyUp linear infinite;
+}
+
+@keyframes flyUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-105vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+/* --- HỆ THỐNG HIỆU ỨNG CHUYỂN ĐỘNG NÂNG CAO --- */
+
+/* 1. Hiệu ứng cho Chữ/Khung trượt từ bên TRÁI vào */
+.slide-from-left {
+    opacity: 0;
+    transform: translateX(-50px); /* Đẩy sang trái 50px */
+    transition: opacity 1s cubic-bezier(0.1, 0.8, 0.3, 1), transform 1s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+.slide-from-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 2. Hiệu ứng cho Chữ/Khung trượt từ bên PHẢI vào */
+.slide-from-right {
+    opacity: 0;
+    transform: translateX(50px); /* Đẩy sang phải 50px */
+    transition: opacity 1s cubic-bezier(0.1, 0.8, 0.3, 1), transform 1s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+.slide-from-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- CẬP NHẬT HIỆU ỨNG MỜ ẢNH --- */
+.scroll-fade-effect {
+    opacity: 0;
+    scale: 0.98; /* Chỉ thu nhỏ nhẹ 2% thay vì 5% như cũ để tránh cảm giác ảnh bị méo/mất */
+    transition: opacity 0.6s ease-in-out, scale 0.6s ease-in-out;
+}
+
+.scroll-fade-effect.is-visible {
+    opacity: 1;
+    scale: 1;
+}
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+/* Khi cuộn màn hình đến, Class này được kích hoạt để hiện lên */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* --- NÚT ĐIỀU KHIỂN NHẠC CỐ ĐỊNH GÓC MÀN HÌNH --- */
+.music-control-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px; /* Ghim cố định ở góc dưới bên phải màn hình */
+    width: 45px;
+    height: 45px;
+    background-color: rgba(179, 142, 93, 0.85); /* Màu vàng đồng trong suốt nhẹ */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Luôn nổi lên trên cùng các thành phần khác */
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng đĩa xoay tròn khi class .playing được thêm vào */
+.music-control-btn.playing i {
+    animation: spinDisc 3s linear infinite;
+}
+
+/* Định nghĩa chuyển động xoay tròn 360 độ */
+@keyframes spinDisc {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hiệu ứng nhấp nháy nhẹ phóng to thu nhỏ khi nhạc đang phát để khách chú ý */
+.music-control-btn.playing {
+    animation: pulseBtn 2s infinite alternate;
+}
+
+@keyframes pulseBtn {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+}
+/* --- HIỆU ỨNG MÀN HÌNH CHỜ (SPLASH SCREEN) --- */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #E2DCD0; /* Màu nền giấy bìa sang trọng */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Đảm bảo phủ lên trên toàn bộ trang web */
+    transition: all 0.8s ease-in-out;
+}
+
+/* Chiếc phong bì thư chứa nội dung */
+.envelope-container {
+    width: 90%;
+    max-width: 400px;
+    background-color: #FDFBF7;
+    padding: 40px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid #EAE5DB;
+}
+
+.envelope-thumb {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #B38E5D;
+}
+
+.envelope-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.envelope-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #B38E5D;
+    margin-bottom: 5px;
+}
+
+.envelope-names {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 2.2rem;
+    color: #4A453F;
+    margin-bottom: 15px;
+}
+
+.envelope-note {
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+/* Nút bấm mở bao thư siêu đẹp */
+.open-envelope-btn {
+    background-color: #B38E5D;
+    color: white;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(179, 142, 93, 0.4);
+    transition: all 0.3s ease;
+}
+
+.open-envelope-btn i {
+    margin-right: 8px;
+}
+
+.open-envelope-btn:hover {
+    background-color: #4A453F;
+    transform: scale(1.05);
+}
+
+/* Class kích hoạt hiệu ứng biến mất khi bấm mở */
+.fade-out-splash {
+    opacity: 0;
+    transform: translateY(-100vh); /* Đẩy màn hình chờ trượt thẳng lên phía trên */
+}
+/* --- KHUNG HIỂN THỊ PHÓNG TO ẢNH (LIGHTBOX) --- */
+.lightbox-modal {
+    display: none; /* Ban đầu ẩn đi */
+    position: fixed;
+    z-index: 10000; /* Nằm đè lên trên tất cả mọi thứ, kể cả màn hình chờ */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Nền đen mờ 90% cực sang trọng */
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+
+/* Định dạng bức ảnh khi được phóng to */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    /* Hiệu ứng bung ảnh ra mượt mà */
+    animation: zoomEffect 0.3s ease-out; 
+}
+
+@keyframes zoomEffect {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Nút bấm X để đóng */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+    color: #B38E5D; /* Đổi sang màu vàng đồng khi rê vào */
+}
