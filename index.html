@@ -366,20 +366,24 @@ function closeLightbox() {
 }
 
     // --- 3. TỰ ĐỘNG LẤY TÊN KHÁCH MỜI TỪ ĐƯỜNG LINK (URL) ---
-    // Hàm này sẽ đọc nội dung phía sau dấu hỏi chấm ?to= trên thanh địa chỉ
+window.addEventListener("load", function() {
     const urlParams = new URLSearchParams(window.location.search);
-    const guestNameParam = urlParams.get('to'); // Lấy giá trị của biến "to"
+    const guestNameParam = urlParams.get('to');
 
     // Tìm thẻ hiển thị tên khách trên giao diện
     const guestNameElement = document.getElementById("guestName");
 
-    if (guestNameParam) {
-        // Nếu trên link có truyền tên (Ví dụ: ?to=Anh Tuấn) -> Hiển thị tên đó lên thiệp
-        guestNameElement.innerText = guestNameParam;
-    } else {
-        // Nếu link không có tên (chỉ mở mỗi index.html) -> Hiện chữ mặc định
-        guestNameElement.innerText = "Quý Khách và Người Thương";
+    if (guestNameElement) {
+        if (guestNameParam) {
+            // Đổi dấu gạch ngang (-) hoặc gạch dưới (_) thành khoảng trắng cho đẹp
+            const formattedName = guestNameParam.replace(/[-_]/g, ' ');
+            guestNameElement.innerText = formattedName;
+        } else {
+            // Nếu không truyền ?to= thì hiện chữ mặc định
+            guestNameElement.innerText = "Quý Khách";
+        }
     }
+});
     // XỬ LÝ NÚT BẤM XEM THÊM ALBUM
     const btnToggle = document.getElementById("btnToggleAlbum");
     const albumMore = document.getElementById("albumMore");
