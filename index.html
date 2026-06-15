@@ -78,7 +78,7 @@
             
             <div class="timeline">
                 <div class="timeline-item scroll-fade-effect">
-                    <img src="assets/bg5.jpg" alt="Hẹn hò">
+                    <img src="assets/bg15.jpg" alt="Hẹn hò">
                     <div class="timeline-content">
                         <h4>25-11-2026 - Dạm Ngõ</h4>
                         <p>Từ một ánh nhìn rất khẽ, chúng mình bước vào cuộc đời nhau lúc nào chẳng hay...</p>
@@ -106,6 +106,31 @@
                 
                   
             </div>
+            <!-- Khu vực Album ảnh cưới -->
+<div class="album-section">
+    <h2 class="section-title">ALBUM ẢNH CƯỚI</h2>
+
+    <div class="album-grid">
+        
+
+        <!-- Những tấm ảnh ẨN ĐI, bấm nút mới hiện ra -->
+        <div class="album-more" id="albumMore">
+            <img src="assets/bg16.jpg" alt="Ảnh cưới 5" class="album-img">
+            <img src="assets/bg17.jpg" alt="Ảnh cưới 6" class="album-img">
+            <img src="assets/bg18.jpg" alt="Ảnh cưới 7" class="album-img">
+            <img src="assets/bg19.jpg" alt="Ảnh cưới 8" class="album-img">
+            <img src="assets/bg20.jpg" alt="Ảnh cưới 8" class="album-img">
+            <img src="assets/bg21.jpg" alt="Ảnh cưới 8" class="album-img">
+        </div>
+    </div>
+
+    <!-- NÚT BẤM XEM THÊM ALBUM -->
+    <div class="album-btn-container">
+        <button id="btnToggleAlbum" class="btn-view-more">
+            <span class="heart-icon">🤍</span> XEM THÊM ALBUM <span class="heart-icon">🤍</span>
+        </button>
+    </div>
+</div>
         </section>
 
         <section class="event-section fade-in-section">
@@ -151,7 +176,7 @@
         <section class="guestbook-section fade-in-section">
             <h2 class="section-title">Sổ Lưu Bút</h2>
             <p class="section-subtitle">Gửi những lời chúc mừng tốt đẹp nhất đến đám cưới của chúng tôi!</p>
-            <form class="guestbook-form">
+            <form class="guestbook-form" action="https://formspree.io/f/xbdewoaj" method="POST">
                 <input type="text" placeholder="Họ và Tên" required>
                 <select>
                     <option>Khách Mời</option>
@@ -167,7 +192,7 @@
             <div class="rsvp-card">
                 <h3>Xác Nhận Tham Dự</h3>
                 <p>Điều này giúp chúng tôi chuẩn bị đón tiếp các bạn chu đáo và đầy đủ hơn. Xin cảm ơn!!!</p>
-                <form class="rsvp-form">
+                <form class="rsvp-form" action="https://formspree.io/f/xgobdkld" method="POST">
                     <input type="text" placeholder="Họ và Tên" required>
                     <div class="radio-group">
                         <label><input type="radio" name="attend" value="yes" checked> Có, tôi sẽ đến</label>
@@ -355,6 +380,28 @@ function closeLightbox() {
         // Nếu link không có tên (chỉ mở mỗi index.html) -> Hiện chữ mặc định
         guestNameElement.innerText = "Quý Khách và Người Thương";
     }
+    // XỬ LÝ NÚT BẤM XEM THÊM ALBUM
+    const btnToggle = document.getElementById("btnToggleAlbum");
+    const albumMore = document.getElementById("albumMore");
+
+    // Ban đầu ẩn các ảnh thêm đi bằng code để chắc chắn
+    albumMore.style.display = "none"; 
+
+    btnToggle.addEventListener("click", function() {
+        if (albumMore.style.display === "none") {
+            // MỞ ALBUM RA
+            albumMore.style.display = "contents"; 
+            btnToggle.innerHTML = '<span class="heart-icon">🤍</span> THU GỌN ALBUM <span class="heart-icon">🤍</span>';
+        } else {
+            // THU GỌN LẠI
+            albumMore.style.display = "none";
+            btnToggle.innerHTML = '<span class="heart-icon">🤍</span> XEM THÊM ALBUM <span class="heart-icon">🤍</span>';
+            
+            // Tự động cuộn mượt mà lên lại đầu danh sách album để khách không bị hụt hẫng
+            document.querySelector(".album-section").scrollIntoView({ behavior: "smooth" });
+        }
+    });
+
     </script>
     <!-- KHUNG PHÓNG TO ẢNH (LIGHTBOX MODAL) -->
 <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox()">

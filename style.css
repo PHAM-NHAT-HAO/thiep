@@ -63,15 +63,17 @@ section {
 
 .hero-overlay-text {
     position: absolute;
-    top: 50%;
+    /* CHIÀ KHÓA: Đẩy chữ xuống sát mép đáy khung ảnh (cách mép dưới 40px) */
+    bottom: 40px; 
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%); /* Căn giữa lại theo chiều ngang */
     width: 100%;
     text-align: center;
     color: #fff;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    
+    /* Tăng đổ bóng đen đậm hơn để chữ nổi bần bật trên nền váy cưới trắng */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9), -1px -1px 0px rgba(0, 0, 0, 0.6);
 }
-
 .handwritten-title {
     font-family: 'Pinyon Script', cursive;
     font-size: 3.5rem;
@@ -600,4 +602,49 @@ button {
 
 .lightbox-close:hover {
     color: #B38E5D; /* Đổi sang màu vàng đồng khi rê vào */
+}
+/* Mặc định ẩn phần album mở rộng */
+.album-more {
+    display: none;
+    width: 100%;
+    /* Nếu bạn dùng grid, đảm bảo nó kế thừa cấu trúc grid cũ */
+    display: contents; 
+}
+
+/* Thêm class này bằng JS để ẩn/hiện mượt mà */
+.album-more.show {
+    display: contents !important;
+}
+
+/* Định dạng khu vực chứa nút bấm */
+.album-btn-container {
+    text-align: center;
+    margin: 25px 0;
+}
+
+/* Thiết kế nút bấm "Xem thêm album" sang trọng */
+.btn-view-more {
+    background-color: #c4a47c; /* Màu vàng be/nâu nhạt sang trọng */
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 25px; /* Bo tròn góc */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi rà chuột vào nút */
+.btn-view-more:hover {
+    background-color: #b3926a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.heart-icon {
+    font-size: 0.8rem;
+    margin: 0 3px;
 }
