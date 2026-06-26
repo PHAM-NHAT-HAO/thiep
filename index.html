@@ -80,7 +80,7 @@
                 <div class="timeline-item scroll-fade-effect">
                     <img src="assets/bg15.jpg" alt="Hẹn hò">
                     <div class="timeline-content">
-                        <h4>25-11-2026 - Dạm Ngõ</h4>
+                        <h4>25-11-2025 - Dạm Ngõ</h4>
                         <p>Từ một ánh nhìn rất khẽ, chúng mình bước vào cuộc đời nhau lúc nào chẳng hay...</p>
                     </div>
                 </div>
@@ -179,13 +179,13 @@
             <h2 class="section-title">Sổ Lưu Bút</h2>
             <p class="section-subtitle">Gửi những lời chúc mừng tốt đẹp nhất đến đám cưới của chúng tôi!</p>
             <form class="guestbook-form" action="https://formspree.io/f/xbdewoaj" method="POST">
-                <input type="text" placeholder="Họ và Tên" required>
-                <select>
+                <input type="text" name="name" placeholder="Họ và Tên" required>
+                <select name="relationship">
                     <option>Khách Mời</option>
                     <option>Bạn Nhà Trai</option>
                     <option>Bạn Nhà Gái</option>
                 </select>
-                <textarea rows="3" placeholder="Nhập lời chúc của bạn..." required></textarea>
+                <textarea name="message" rows="3" placeholder="Nhập lời chúc của bạn..." required></textarea>
                 <button type="submit">Gửi lời chúc cho Dâu Rể</button>
             </form>
         </section>
@@ -194,17 +194,17 @@
             <div class="rsvp-card">
                 <h3>Xác Nhận Tham Dự</h3>
                 <p>Điều này giúp chúng tôi chuẩn bị đón tiếp các bạn chu đáo và đầy đủ hơn. Xin cảm ơn!!!</p>
-                <form class="rsvp-form" action="https://formspree.io/f/xgobdkld" method="POST">
-                    <input type="text" placeholder="Họ và Tên" required>
+                <form  class="rsvp-form" action="https://formspree.io/f/xgobdkld" method="POST">
+                    <input type="text" name="name" placeholder="Họ và Tên" required>
                     <div class="radio-group">
                         <label><input type="radio" name="attend" value="yes" checked> Có, tôi sẽ đến</label>
                         <label><input type="radio" name="attend" value="no"> Xin lỗi, tôi bận mất rồi</label>
                     </div>
-                    <select>
+                    <select name="location">
                         <option>Nơi tham dự: Nhà Trai</option>
                         <option>Nơi tham dự: Nhà Gái</option>
                     </select>
-                    <select>
+                    <select name="guests">
                         <option>Số lượng tham dự: 1 người</option>
                         <option>Số lượng tham dự: 2 người</option>
                     </select>
